@@ -1,0 +1,339 @@
+﻿@model WebApplication1.Models.Formulario
+
+@{
+    ViewData["Title"] = "Formulario de Admisión";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Formulario de Admisión</h4>
+<hr />
+
+<div class="row formulario-container">
+    <!-- Barra de Navegación -->
+    <ul class="nav flex-column col-12 col-md-4 formulario-nav" id="pills-tab" role="tablist">
+        <li class="nav-item active">
+            <a href="#step-1" class="nav-link" id="pills-step-1-tab" data-toggle="pill" role="tab" aria-controls="pills-step-1" aria-selected="true">1 - Datos Personales/Carrera</a>
+            <!--Datos personales/carrera-->
+        </li>
+        <li class="nav-item">
+            <a href="#step-2" class="nav-link" id="pills-step-2-tab" data-toggle="pill">2 - Necesidades Educativas Especiales</a>
+            <!--Necesidades educativas especiales-->
+           
+        </li>
+        <li class="nav-item">
+            <a href="#step-3" class="nav-link" data-toggle="pill">3 - Datos de Domicilio</a>
+        </li>
+          <li class="nav-item">
+            <a href="#step-4" class="nav-link" data-toggle="pill">4 - Datos Laborales</a>
+        </li>
+          <li class="nav-item">
+            <a href="#step-5" class="nav-link" data-toggle="pill">5 - Perfil Digital</a>
+        </li>
+          <li class="nav-item">
+            <a href="#step-6" class="nav-link" data-toggle="pill">6 - Perfil ingreso a la UNED</a>
+        </li>
+          <li class="nav-item">
+            <a href="#step-7" class="nav-link" data-toggle="pill">7 - Estudios Realizados</a>
+        </li>
+          <li class="nav-item">
+            <a href="#step-8" class="nav-link" data-toggle="pill">8 - Datos Idioma</a>
+        </li>
+          <li class="nav-item">
+            <a href="#step-9" class="nav-link" data-toggle="pill">9 - Otras Situaciones</a>
+        </li>
+        <li class="nav-item">
+            <a href="#step-10" class="nav-link" data-toggle="pill">10 - Informacion requisitos adminision</a>
+        </li>
+    </ul>
+    <!-- Columna 1: Datos Personales -->
+    <div class="col-12 col-md-4 formulario-columna" id="columna-2">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Tipo de Identificación -->
+            <div class="form-group">
+                <label asp-for="TipoIdentificacion" class="control-label"> Tipo Identificación</label>
+                <input asp-for="TipoIdentificacion" name="TipoIdentificacion" class="form-control" />
+                <span asp-validation-for="TipoIdentificacion" class="text-danger"></span>
+            </div>
+
+            <!-- Identificación -->
+            <div class="form-group">
+                <label asp-for="Identificacion" class="control-label"></label>
+                <input asp-for="Identificacion" name="Identificacion" class="form-control" />
+                <span asp-validation-for="Identificacion" class="text-danger"></span>
+            </div>
+
+            <!-- Nombre -->
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+
+            <!-- Apellido -->
+            <div class="form-group">
+                <label asp-for="PrimerApellido" class="control-label">Primer Apellido</label>
+                <input asp-for="PrimerApellido" class="form-control" />
+                <span asp-validation-for="PrimerApellido" class="text-danger"></span>
+            </div>
+
+            <!-- Segundo Apellido -->
+            <div class="form-group">
+                <label asp-for="SegundoApellido" class="control-label">Segundo Apellido</label>
+                <input asp-for="SegundoApellido" class="form-control" />
+                <span asp-validation-for="SegundoApellido" class="text-danger"></span>
+            </div>
+
+            <!-- Género -->
+            <div class="form-group">
+                <label asp-for="genero" class="control-label"></label>
+                <input asp-for="genero" class="form-control" />
+                <span asp-validation-for="genero" class="text-danger"></span>
+            </div>
+
+            <!-- Nacionalidad -->
+            <div class="form-group">
+                <label asp-for="Nacionalidad" class="control-label"></label>
+                <input asp-for="Nacionalidad" class="form-control" />
+                <span asp-validation-for="Nacionalidad" class="text-danger"></span>
+            </div>
+
+            <!-- Fecha de Nacimiento -->
+            <div class="form-group">
+                <label asp-for="FechaNacimiento" class="control-label">Fecha Nacimiento</label>
+                <input asp-for="FechaNacimiento" class="form-control" />
+                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+            </div>
+
+            <!-- Estado Civil -->
+            <div class="form-group">
+                <label asp-for="EstadoCivil" class="control-label">Estado Civil</label>
+                <input asp-for="EstadoCivil" class="form-control" />
+                <span asp-validation-for="EstadoCivil" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+
+    <!-- Columna 2: Datos de Contacto -->
+    <div class="col-12 col-md-4 formulario-columna" id="columna-3">
+        <!-- Teléfono Principal -->
+        <div class="form-group">
+            <label asp-for="TelefonoPrincipal" class="control-label">Teléfono Principal</label>
+            <input asp-for="TelefonoPrincipal" class="form-control" />
+            <span asp-validation-for="TelefonoPrincipal" class="text-danger"></span>
+        </div>
+
+        <!-- Teléfono Secundario -->
+        <div class="form-group">
+            <label asp-for="TelefonoSecundario" class="control-label">Teléfono Secundario</label>
+            <input asp-for="TelefonoSecundario" class="form-control" />
+            <span asp-validation-for="TelefonoSecundario" class="text-danger"></span>
+        </div>
+
+        <!-- Fax -->
+        <div class="form-group">
+            <label asp-for="fax" class="control-label"></label>
+            <input asp-for="fax" class="form-control" />
+            <span asp-validation-for="fax" class="text-danger"></span>
+        </div>
+
+        <!-- Correo Electrónico -->
+        <div class="form-group">
+            <label asp-for="CorreoElectronico" class="control-label">Correo Electronico</label>
+            <input asp-for="CorreoElectronico" class="form-control" />
+            <span asp-validation-for="CorreoElectronico" class="text-danger"></span>
+        </div>
+
+        <!-- Correo Electrónico Secundario -->
+        <div class="form-group">
+            <label asp-for="CorreoElectronicoSecundario" class="control-label">Correo Electronico Secundario</label>
+            <input asp-for="CorreoElectronicoSecundario" class="form-control" />
+            <span asp-validation-for="CorreoElectronicoSecundario" class="text-danger"></span>
+        </div>
+
+        <!-- Indígena -->
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Indigena" />
+                @Html.DisplayNameFor(model => model.Indigena)
+            </label>
+        </div>
+        <!--Columna 3-->
+        <!-- Necesidades educativas especiales -->
+        <!-- Columna: Necesidades Educativas Especiales d-none para ocultarlo -->
+        <div class="col-12 col-md-4 d-none formulario-columna" id="columna-4"> 
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <!-- Tipo de Necesidad Educativa Especial -->
+                <div class="form-group">
+                    <label asp-for="TipoNecesidad" class="control-label">Tipo de Necesidad Educativa Especial</label>
+                    <select asp-for="TipoNecesidad" class="form-control">
+                        <option value="">Seleccione...</option>
+                        <option value="discapacidad">Discapacidad</option>
+                        <option value="trastorno">Trastorno del Aprendizaje</option>
+                        <option value="dificultades">Dificultades de Aprendizaje</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                    <span asp-validation-for="TipoNecesidad" class="text-danger"></span>
+                </div>
+
+                <!-- Descripción de la Necesidad -->
+                <div class="form-group">
+                    <label asp-for="DescripcionNecesidad" class="control-label">Descripción de la Necesidad Educativa Especial</label>
+                    <textarea asp-for="DescripcionNecesidad" class="form-control" rows="4"></textarea>
+                    <span asp-validation-for="DescripcionNecesidad" class="text-danger"></span>
+                </div>
+
+                <!-- Condición Médica Asociada (Checkbox) -->
+                <div class="form-group">
+                    <label>¿Tiene alguna condición médica asociada?</label>
+                    <div>
+                        <input type="checkbox" asp-for="CondicionMedica" />
+                        <label> Sí</label>
+                    </div>
+                    <span asp-validation-for="CondicionMedica" class="text-danger"></span>
+                </div>
+
+                <!-- Requiere Adaptaciones Especiales (Checkbox) -->
+                <div class="form-group">
+                    <label>¿Requiere Adaptaciones Especiales?</label>
+                    <div>
+                        <input type="checkbox" asp-for="RequiereAdaptaciones" />
+                        <label> Sí</label>
+                    </div>
+                    <span asp-validation-for="RequiereAdaptaciones" class="text-danger"></span>
+                </div>
+
+                <!-- Necesita Asistencia Adicional (Checkbox) -->
+                <div class="form-group">
+                    <label>¿Necesita asistencia adicional en el aula?</label>
+                    <div>
+                        <input type="checkbox" asp-for="AsistenciaAdicional" />
+                        <label> Sí</label>
+                    </div>
+                    <span asp-validation-for="AsistenciaAdicional" class="text-danger"></span>
+                </div>
+
+                <!-- ¿Algún otro apoyo necesario? -->
+                <div class="form-group">
+                    <label asp-for="ApoyoAdicional" class="control-label">Descripción de otro apoyo necesario</label>
+                    <textarea asp-for="ApoyoAdicional" class="form-control" rows="4"></textarea>
+                    <span asp-validation-for="ApoyoAdicional" class="text-danger"></span>
+                </div>
+
+                <!-- Médico Especialista -->
+                <div class="form-group">
+                    <label asp-for="MedicoEspecialista" class="control-label">Médico Especialista</label>
+                    <input asp-for="MedicoEspecialista" class="form-control" />
+                    <span asp-validation-for="MedicoEspecialista" class="text-danger"></span>
+                </div>
+
+                <!-- Tratamiento o Terapia -->
+                <div class="form-group">
+                    <label asp-for="TratamientoTerapia" class="control-label">Tratamiento o Terapia Requerida</label>
+                    <input asp-for="TratamientoTerapia" class="form-control" />
+                    <span asp-validation-for="TratamientoTerapia" class="text-danger"></span>
+                </div>
+
+                <!-- Fecha de Diagnóstico -->
+                <div class="form-group">
+                    <label asp-for="FechaDiagnostico" class="control-label">Fecha de Diagnóstico</label>
+                    <input asp-for="FechaDiagnostico" class="form-control" type="date" />
+                    <span asp-validation-for="FechaDiagnostico" class="text-danger"></span>
+                </div>
+            </form>
+        </div>
+
+
+
+        <div>
+            <p>
+                ¿Se considera usted indígena?
+
+                La pertenencia a un pueblo indígena u originario
+                se realiza con el fin de desarrollar proyectos
+                específicos para ésta población.
+                La pertenencia a un pueblo indígena u originario no
+                solo es una cuestión de identidad cultural,
+                sino también de reconocimiento y derechos dentro de un marco social y político.
+                Los pueblos indígenas son comunidades que, a lo largo de la historia,
+                han mantenido tradiciones, lenguas, costumbres y formas de organización social propias,
+                las cuales deben ser preservadas y fortalecidas.
+            </p>
+        </div>
+    </div>
+    <h1>Carrera</h1>
+    <h4>Buscar carrera universitaria</h4>
+     <div class="form-group formulario-educativo">
+            <label asp-for="InstituciónEducativa" class="control-label">Institucion Educativa</label>
+            <input asp-for="InstituciónEducativa" class="form-control" />
+            <span asp-validation-for="InstituciónEducativa" class="text-danger"></span>
+        </div>
+
+        <!-- Nombre de la Carrera -->
+        <div class="form-group">
+            <label asp-for="NombreCarrera" class="control-label">Nombre Carrera</label>
+            <input asp-for="NombreCarrera" class="form-control" />
+            <span asp-validation-for="NombreCarrera" class="text-danger"></span>
+        </div>
+
+        <!-- Selección de Carrera -->
+        <div class="form-group">
+            <label asp-for="SeleccioneCarrera" class="control-label">Seleccione Carrera</label>
+            <input asp-for="SeleccioneCarrera" class="form-control" />
+            <span asp-validation-for="SeleccioneCarrera" class="text-danger"></span>
+        </div>
+
+        <!-- Nivel Académico -->
+        <div class="form-group">
+            <label asp-for="NivelAcademico" class="control-label">Nivel Academico</label>
+            <input asp-for="NivelAcademico" class="form-control" />
+            <span asp-validation-for="NivelAcademico" class="text-danger"></span>
+        </div>
+
+        <!-- Botón para crear -->
+        <div class="form-group">
+            <input type="submit" value="Crear" class="btn btn-primary" />
+        </div>
+    </div>
+
+
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/formulario.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Ocultar la columna 4 inicialmente
+            $('#columna-4').addClass('d-none'); // Asegúrate de que columna-4 esté oculta al inicio.
+
+            // Evento de clic en las pestañas de la barra de navegación
+            $('#pills-tab a').on('click', function (e) {
+                var tabId = $(this).attr('id'); // Obtener el id del tab seleccionado
+
+                // Si se selecciona la pestaña "2 - Necesidades Educativas Especiales"
+                if (tabId === 'pills-step-2-tab') {
+                $('#columna-4').removeClass('d-none'); // Mostrar la columna 4
+                                   // Mostrar la columna 4 y moverla a la misma fila de la columna 2
+                    $('#columna-4').removeClass('d-none');
+                    $('#columna-4').insertBefore('#columna-3');  // Mueve #columna-4 antes de #columna-3
+                     $('#columna-3').addClass('d-none');
+                }
+            });
+
+            // Asegurarse de que el contenido inicial se cargue correctamente
+            $('#pills-step-1-tab').trigger('click'); // Simula el clic en la primera pestaña cuando la página se carga
+        });
+    </script>
+    
+}
+

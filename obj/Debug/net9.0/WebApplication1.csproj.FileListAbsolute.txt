@@ -349,3 +349,4 @@ C:\Users\Asus\Desktop\CSHART\Formulario c# y javascript\WebApplication1\bin\Debu
 C:\Users\Asus\Desktop\CSHART\Formulario c# y javascript\WebApplication1\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Asus\Desktop\CSHART\Formulario c# y javascript\WebApplication1\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\Asus\Desktop\CSHART\Formulario c# y javascript\WebApplication1\obj\Debug\net9.0\compressed\w666dlp5ld-e7u4kcgn8c.gz
+C:\Users\Asus\Desktop\CSHART\Formulario c# y javascript\WebApplication1\obj\Debug\net9.0\WebApplication1.sourcelink.json

@@ -1,10 +1,13 @@
-﻿namespace WebApplication1.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebApplication1.Models
 {
     public class Formulario
     {
         public int FormularioId { get; set; }
         public string TipoIdentificacion {  get; set; }
         public string Identificacion {  get; set; }
+        [Required(ErrorMessage = "El nombre es obligatorio")]
         public string Nombre { get; set; }
         public string PrimerApellido { get; set; }  // Apellido completo del estudiante
         public string SegundoApellido { get; set; }

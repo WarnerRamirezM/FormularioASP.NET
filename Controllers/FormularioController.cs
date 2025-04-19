@@ -10,23 +10,32 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.DTO;
 using WebApplication1.Models;
+using WebApplication1.Services;
 
 namespace WebApplication1.Controllers
 {
     [Authorize(Roles = "Admin, Instructor, Alumno")] // PARA LOS ROLES DEL AUTENTICACION
     public class FormularioController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context; //clase db contexto
+        private readonly EmailService _emailService; //clase service
+        private readonly ApiMateriaServices _materiaService; //materias de la api
+        private readonly ApiUniversidadServices _universidadServices;  //universidades de la api
 
-        public FormularioController(ApplicationDbContext context)
+        public FormularioController(ApplicationDbContext context, EmailService emailService, ApiMateriaServices materiaService, ApiUniversidadServices universidadServices) //inyectando contexto y el servicio de emails
         {
             _context = context;
+            _emailService = emailService;
+            _materiaService = materiaService; //inyectamos el servicio de api materias en el constructor
+            _universidadServices = universidadServices;
         }
 
         // GET: Formulario
         [Authorize(Roles = "Admin, Alumno")]
         public async Task<IActionResult> Index()
         {
+           
+
             return View(await _context.formularios.ToListAsync());
         }
 
@@ -49,8 +58,17 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Formulario/Create
-        public IActionResult Create()
+        public async Task<IActionResult> CreateAsync()
         {
+            //obtener las universidades del servicio
+            var universidades = await _universidadServices.ObtenerUniversidadesAsync();
+            ViewBag.Universidad = universidades; //mandamos el viewbag de universidades disponibles.
+
+            //obtener las materias del servicio
+            var materias = await _materiaService.ObtenerMateriasAsync();
+
+            // Puedes pasarlas a la vista con ViewBag, ViewModel, etc.
+            ViewBag.Materias = materias;
             return View();
         }
 
@@ -65,10 +83,30 @@ namespace WebApplication1.Controllers
             {
                 _context.Add(formulario);
                 await _context.SaveChangesAsync();
+
+                // ✅ Enviar correo
+                var mensaje = $@"
+            <h2>Formulario creado con éxito</h2>
+            <p>Estimado/a {formulario.Nombre} {formulario.PrimerApellido},</p>
+            <p>Su formulario ha sido registrado correctamente en el sistema.</p>
+            <p><strong>Número de formulario:</strong> {formulario.FormularioId}</p>
+            <p><strong>Identificación:</strong> {formulario.Identificacion}</p>
+            <p><strong>Correo registrado:</strong> {formulario.CorreoElectronico}</p>
+            <br/>
+            <p>Gracias por utilizar el sistema de la UNED.</p>
+        ";
+
+                await _emailService.EnviarCorreoAsync(
+                    destinatario: formulario.CorreoElectronico,
+                    asunto: "Formulario creado con éxito - UNED",
+                    mensaje: mensaje
+                );
+
                 return RedirectToAction(nameof(Index));
             }
             return View(formulario);
         }
+
 
         // GET: Formulario/Edit/5
         public async Task<IActionResult> Edit(int? id)

@@ -1,0 +1,102 @@
+@media (min-width: 768px) {
+    html {
+        font-size: 16px; /* Establece el tamaño de fuente a 16px para pantallas medianas y más grandes */
+    }
+
+    /* Para pantallas más pequeñas que 768px */
+    @media (max-width: 767px) {
+        html {
+            font-size: 14px; /* Establece un tamaño de fuente menor para pantallas más pequeñas */
+        }
+    }
+
+    /* Estilo para los formularios en dos columnas */
+    .row {
+        display: flex;
+        flex-wrap: wrap; /* Asegura que los elementos puedan saltar a la siguiente línea si no caben */
+        margin-top: 0px;
+    }
+
+    .col-md-6 {
+        width: 100%; /* En pantallas pequeñas, las columnas ocupan todo el ancho */
+        padding-top: 0px;
+    }
+
+    /* Para pantallas medianas o más grandes, divide en dos columnas */
+    @media (min-width: 768px) {
+        .col-md-6 {
+            width: 50%; /* En pantallas grandes, las columnas ocuparán la mitad del ancho */
+        }
+    }
+
+    /* Asegúrate de que los inputs y etiquetas tengan buen espaciado */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+    /* Asegura un buen espaciado entre columnas */
+    .row > .col-md-6 {
+        padding: 0 15px; /* Espaciado entre las columnas */
+    }
+    /* Aseguramos que la fila de formulario ocupe al menos la altura de la pantalla */
+    .formulario-container {
+        display: flex;
+        min-height: 100vh;
+    }
+
+    /* Aseguramos que la barra de navegación se estire igual que las columnas */
+    .formulario-nav {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Asegura que tenga la misma altura que la columna */
+        padding: 0;
+        list-style: none;
+    }
+
+    .col-12.col-md-4 {
+        font-weight: normal;
+        font-family: sans-serif; /* Cambia el tipo de letra */
+        padding-right: 100px; /* Ajusta el valor según el espacio que quieras */
+    }
+
+    .formulario-nav .nav-item {
+        margin-bottom: 15px; /* Elimina el margen entre los items */
+        padding-bottom: 10px; /* Puedes añadir algo de relleno para separar el borde del texto */
+        border-bottom: 2px solid #ccc; /* Borde entre los items */
+        box-sizing: border-box; /* Asegura que el borde no afecte el tamaño total del item */
+        font-family: "Constantia", serif;
+        font-weight: bold;
+        font-size: 17px;
+    }
+    /*Formulario educativo para de abajo*/
+    .formulario-educativo {
+        margin-top: 10px;
+        padding-top: 0px;
+    }
+    /* Aseguramos que las columnas se estiren a la misma altura */
+    .formulario-columna {
+        display: flex;
+        flex-direction: column;
+        flex: 1; /* Asegura que las columnas ocupen todo el espacio disponible */
+        margin-top: 10PX; /* Elimina cualquier margen superior */
+        padding-top: 10PX; /* Elimina cualquier relleno superior */
+    }
+
+        .formulario-columna form {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+    /* Asegura que el contenido no se desborde y tenga espacio adecuado */
+    .formulario-columna {
+        margin-bottom: 15px;
+        font-family: "Constantia", serif;
+        font-weight: normal;
+        font-size: 14px;
+    }
+}

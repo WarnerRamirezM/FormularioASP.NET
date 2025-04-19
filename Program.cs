@@ -11,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+builder.Services.AddTransient<EmailService>();
 // Configurar el DbContext para Identity y otros servicios
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -49,6 +51,16 @@ builder.Services.AddHangfireServer();*/
 
 // Agregar servicio de correo
 builder.Services.AddTransient<EmailService>(); // Registro del servicio de correo
+builder.Services.AddHttpClient<ApiMateriaServices>(client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7197/");
+});
+builder.Services.AddHttpClient<ApiUniversidadServices>(client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7197/");
+});
+
+
 var app = builder.Build();
 // Crear el servicio de proveedor de servicios y pasar al método SeedData.Initialize
 using (var scope = app.Services.CreateScope())
@@ -74,6 +86,9 @@ app.UseRouting();
 // Activar autenticación y autorización
 app.UseAuthentication();  // Añadir autenticación
 app.UseAuthorization();   // Añadir autorización
+
+
+
 /*
 // Configurar Hangfire Dashboard (opcional)
 app.UseHangfireDashboard("/hangfire"); // Ruta para ver el panel de Hangfire*/

@@ -35,6 +35,7 @@ namespace WebApplication1.Models
         public string MedicoEspecialista { get; set; }
         public string TratamientoTerapia { get; set; }
         public DateTime FechaDiagnostico { get; set; }
-
+        // Aquí añadimos la propiedad para almacenar los archivos
+        public string FilePath { get; set; } // Guarda la ruta del archivo
     }
 }

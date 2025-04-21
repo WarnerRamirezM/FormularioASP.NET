@@ -32,11 +32,26 @@ namespace WebApplication1.Controllers
 
         // GET: Formulario
         [Authorize(Roles = "Admin, Alumno")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1) //incluir paginacion a la hora de mostrar formularios
         {
-           
+           int sizePage =  2;
 
-            return View(await _context.formularios.ToListAsync());
+           int totalFormularios = await _context.formularios.CountAsync(); //cantidad total de los formularios.
+            
+            
+            // Se divide el total de registros entre el tamaño 
+            // Se usa Math.Ceiling para redondear hacia arriba, porque si hay registros restantes, necesitamos una página más.
+            var totalPaginas = (int)Math.Ceiling(totalFormularios / (double)sizePage);
+            var formularios = await _context.formularios
+            .Skip((page - 1) * sizePage)  // Omite los formularios de las páginas anteriores
+            .Take(sizePage)  // Toma el número de formularios que se ajustan a la página actual
+            .ToListAsync();  // Ejecuta la consulta y obtiene los dato
+
+            // ViewBag es un contenedor que se usa para pasar datos desde el controlador a la vista.
+            ViewBag.PaginaActual = page;  // Página actual
+            ViewBag.TotalPaginas = totalPaginas;  // Total de páginas disponibles
+
+            return View(formularios);
         }
 
         // GET: Formulario/Details/5

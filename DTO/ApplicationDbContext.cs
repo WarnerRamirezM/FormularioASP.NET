@@ -15,6 +15,8 @@ namespace WebApplication1.DTO
         public DbSet<People> People { get; set; }
         public DbSet<Pregunta> preguntas { get; set; }
         public DbSet<Role> Role { get; set; }
+        public DbSet<ArchivoAdjunto> Archivos { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -23,5 +25,6 @@ namespace WebApplication1.DTO
 
          
         }
+        public DbSet<WebApplication1.Models.ArchivoAdjunto> ArchivoAdjunto { get; set; } = default!;
     }
 }

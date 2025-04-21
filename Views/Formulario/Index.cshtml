@@ -56,3 +56,31 @@
   
     </tbody>
 </table>
+<!-- Paginación -->
+<nav aria-label="Paginación">
+    <ul class="pagination justify-content-center">
+        @if (ViewBag.PaginaActual > 1)
+        {
+            <!-- Enlace para la página anterior -->
+            <li class="page-item">
+                <a class="page-link" href="?page=@(ViewBag.PaginaActual - 1)">« Anterior</a>
+            </li>
+        }
+
+        @for (int i = 1; i <= ViewBag.TotalPaginas; i++)
+        {
+            <!-- Enlaces a las páginas numeradas -->
+            <li class="page-item @(i == ViewBag.PaginaActual ? "active" : "")">
+                <a class="page-link" href="?page=@i">@i</a>
+            </li>
+        }
+
+        @if (ViewBag.PaginaActual < ViewBag.TotalPaginas)
+        {
+            <!-- Enlace para la página siguiente -->
+            <li class="page-item">
+                <a class="page-link" href="?page=@(ViewBag.PaginaActual + 1)">Siguiente »</a>
+            </li>
+        }
+    </ul>
+</nav>

@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|c:\\users\\asus\\desktop\\cshart\\formulario c# y javascript\\webapplication1\\controllers\\archivoadjuntocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|solutionrelative:controllers\\archivoadjuntocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|c:\\users\\asus\\desktop\\cshart\\formulario c# y javascript\\webapplication1\\models\\archivoadjunto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|solutionrelative:models\\archivoadjunto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|c:\\users\\asus\\desktop\\cshart\\formulario c# y javascript\\webapplication1\\dto\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|solutionrelative:dto\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|c:\\users\\asus\\desktop\\cshart\\formulario c# y javascript\\webapplication1\\models\\formulario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|solutionrelative:models\\formulario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|c:\\users\\asus\\desktop\\cshart\\formulario c# y javascript\\webapplication1\\controllers\\formulariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|solutionrelative:controllers\\formulariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|c:\\users\\asus\\desktop\\cshart\\formulario c# y javascript\\webapplication1\\views\\formulario\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|solutionrelative:views\\formulario\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|c:\\users\\asus\\desktop\\cshart\\formulario c# y javascript\\webapplication1\\views\\formulario\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|solutionrelative:views\\formulario\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|c:\\users\\asus\\desktop\\cshart\\formulario c# y javascript\\webapplication1\\views\\formulario\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|solutionrelative:views\\formulario\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|c:\\users\\asus\\desktop\\cshart\\formulario c# y javascript\\webapplication1\\views\\formulario\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|solutionrelative:views\\formulario\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|c:\\users\\asus\\desktop\\cshart\\formulario c# y javascript\\webapplication1\\views\\formulario\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2AE2EEB8-9643-45A4-8830-9CCC8A6FDC07}|WebApplication1.csproj|solutionrelative:views\\formulario\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 81,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,52 +46,91 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\DTO\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "DTO\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\DTO\\ApplicationDbContext.cs",
-              "RelativeToolTip": "DTO\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T17:05:58.878Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ArchivoAdjunto.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Models\\ArchivoAdjunto.cs",
-              "RelativeDocumentMoniker": "Models\\ArchivoAdjunto.cs",
-              "ToolTip": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Models\\ArchivoAdjunto.cs",
-              "RelativeToolTip": "Models\\ArchivoAdjunto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T16:51:44.969Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ArchivoAdjuntoController.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Controllers\\ArchivoAdjuntoController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ArchivoAdjuntoController.cs",
-              "ToolTip": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Controllers\\ArchivoAdjuntoController.cs",
-              "RelativeToolTip": "Controllers\\ArchivoAdjuntoController.cs",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAowGwAAAAsAAAAAAAAAA==",
+              "Title": "Formulario.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Models\\Formulario.cs",
+              "RelativeDocumentMoniker": "Models\\Formulario.cs",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Models\\Formulario.cs",
+              "RelativeToolTip": "Models\\Formulario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T16:29:24.871Z",
+              "WhenOpened": "2025-04-29T06:10:53.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Views\\Formulario\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Formulario\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Views\\Formulario\\Index.cshtml",
+              "RelativeToolTip": "Views\\Formulario\\Index.cshtml",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-29T06:09:53.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Views\\Formulario\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Formulario\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Views\\Formulario\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Formulario\\Edit.cshtml",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAGAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-29T06:09:41.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Views\\Formulario\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Formulario\\Details.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Views\\Formulario\\Details.cshtml",
+              "RelativeToolTip": "Views\\Formulario\\Details.cshtml",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAG0AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-29T06:09:30.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Views\\Formulario\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\Formulario\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Views\\Formulario\\Delete.cshtml",
+              "RelativeToolTip": "Views\\Formulario\\Delete.cshtml",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAAG4AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-29T06:09:15.847Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Views\\Formulario\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Formulario\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Views\\Formulario\\Create.cshtml",
+              "RelativeToolTip": "Views\\Formulario\\Create.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAAQAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-23T16:38:37.083Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "FormularioController.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Controllers\\FormularioController.cs",
               "RelativeDocumentMoniker": "Controllers\\FormularioController.cs",
               "ToolTip": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\Controllers\\FormularioController.cs",
               "RelativeToolTip": "Controllers\\FormularioController.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAkwAsAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-19T17:55:23.869Z",
               "EditorCaption": ""

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using WebApplication1.Models.ApiModels;
 
 namespace WebApplication1.Models
 {
@@ -15,7 +16,6 @@ namespace WebApplication1.Models
         public string Nacionalidad { get; set; }  // País de residencia
         public DateTime FechaNacimiento { get; set; }  // Fecha de nacimiento del estudiante
         public string EstadoCivil { get; set; }  // Estado civil del estudiante
-        public string InstituciónEducativa { get; set; }  // Institución educativa de procedencia
         
         public string TelefonoPrincipal { get; set; }  // Teléfono de contacto
         public string TelefonoSecundario { get; set; }
@@ -24,7 +24,6 @@ namespace WebApplication1.Models
         public string CorreoElectronicoSecundario { get; set; }
         public Boolean Indigena { get; set; }
         public string NombreCarrera { get; set; }
-        public string SeleccioneCarrera { get; set; }
         public string NivelAcademico { get; set; }
         public string TipoNecesidad { get; set; }
         public string DescripcionNecesidad { get; set; }
@@ -37,5 +36,9 @@ namespace WebApplication1.Models
         public DateTime FechaDiagnostico { get; set; }
         // Aquí añadimos la propiedad para almacenar los archivos
         public string FilePath { get; set; } // Guarda la ruta del archivo
+        [Required(ErrorMessage = "Debe seleccionar una universidad")]
+        public int UniversidadId { get; set; }
+        public int MateriaId { get; set; }
+       
     }
 }

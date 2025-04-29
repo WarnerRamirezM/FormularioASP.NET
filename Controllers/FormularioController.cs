@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using iTextSharp.text;
+﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Net.NetworkInformation;
 using WebApplication1.DTO;
 using WebApplication1.Models;
 using WebApplication1.Services;
+using WebApplication1.Models.ApiModels;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace WebApplication1.Controllers
 {
@@ -32,27 +30,61 @@ namespace WebApplication1.Controllers
 
         // GET: Formulario
         [Authorize(Roles = "Admin, Alumno")]
-        public async Task<IActionResult> Index(int page = 1) //incluir paginacion a la hora de mostrar formularios
+
+
+        public async Task<IActionResult> Index(int page = 1) // Acción del controlador que muestra los formularios, con paginación. Por defecto, muestra la página 1.
         {
-           int sizePage =  2;
+            int sizePage = 2; // Define cuántos formularios se muestran por página.
 
-           int totalFormularios = await _context.formularios.CountAsync(); //cantidad total de los formularios.
-            
-            
-            // Se divide el total de registros entre el tamaño 
-            // Se usa Math.Ceiling para redondear hacia arriba, porque si hay registros restantes, necesitamos una página más.
-            var totalPaginas = (int)Math.Ceiling(totalFormularios / (double)sizePage);
-            var formularios = await _context.formularios
-            .Skip((page - 1) * sizePage)  // Omite los formularios de las páginas anteriores
-            .Take(sizePage)  // Toma el número de formularios que se ajustan a la página actual
-            .ToListAsync();  // Ejecuta la consulta y obtiene los dato
+            try
+            {
+                // Cuenta cuántos formularios hay en total en la base de datos.
+                int totalFormularios = await _context.formularios.CountAsync();
 
-            // ViewBag es un contenedor que se usa para pasar datos desde el controlador a la vista.
-            ViewBag.PaginaActual = page;  // Página actual
-            ViewBag.TotalPaginas = totalPaginas;  // Total de páginas disponibles
+                // Calcula el total de páginas necesarias, redondeando hacia arriba si hay un residuo.
+                var totalPaginas = (int)Math.Ceiling(totalFormularios / (double)sizePage);
 
-            return View(formularios);
+                // Consulta los formularios para la página actual:
+                // - Salta los formularios de las páginas anteriores.
+                // - Toma solo los de la página actual.
+                var formularios = await _context.formularios
+                    .Skip((page - 1) * sizePage)    // Salta los registros de las páginas anteriores.
+                    .Take(sizePage)                 // Toma solo los registros de la página actual.
+                    .ToListAsync();                 // Ejecuta la consulta y obtiene los resultados como una lista.
+
+                // Envía a la vista cuál es la página actual.
+                ViewBag.PaginaActual = page;
+
+                // Envía a la vista cuántas páginas hay en total.
+                ViewBag.TotalPaginas = totalPaginas;
+
+                // Retorna la vista con la lista de formularios para mostrarla.
+                return View(formularios);
+            }
+            catch (System.Data.SqlTypes.SqlNullValueException ex) // Captura errores por valores NULL que no deberían serlo.
+            {
+                // Envía un mensaje de error a la vista si algún campo NULL causa una excepción.
+                ViewBag.Error = "❌ Error: Un campo en la base de datos contiene un valor nulo inesperado.";
+
+                // Imprime el error en la consola del servidor para depuración (útil en desarrollo).
+                Console.WriteLine($"SqlNullValueException: {ex.Message}");
+
+                // Retorna la vista con una lista vacía para evitar que se rompa.
+                return View(new List<Formulario>());
+            }
+            catch (Exception ex) // Captura cualquier otro tipo de error que ocurra.
+            {
+                // Envía un mensaje genérico de error a la vista.
+                ViewBag.Error = "❌ Ha ocurrido un error inesperado al cargar los formularios.";
+
+                // Imprime el mensaje de error para que el desarrollador lo vea.
+                Console.WriteLine($"Exception: {ex.Message}");
+
+                // Devuelve una lista vacía a la vista para mantenerla funcional.
+                return View(new List<Formulario>());
+            }
         }
+
 
         // GET: Formulario/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -75,15 +107,24 @@ namespace WebApplication1.Controllers
         // GET: Formulario/Create
         public async Task<IActionResult> CreateAsync()
         {
-            //obtener las universidades del servicio
             var universidades = await _universidadServices.ObtenerUniversidadesAsync();
-            ViewBag.Universidad = universidades; //mandamos el viewbag de universidades disponibles.
+
+            // Convertir a SelectListItem
+            ViewBag.Universidad = universidades.Select(u => new SelectListItem
+            {
+                Value = u.Id.ToString(), // Id debe ser int o string
+                Text = u.Name
+            }).ToList();
 
             //obtener las materias del servicio
             var materias = await _materiaService.ObtenerMateriasAsync();
 
-            // Puedes pasarlas a la vista con ViewBag, ViewModel, etc.
-            ViewBag.Materias = materias;
+            ViewBag.Materia = materias.Select(u => new SelectListItem
+            {
+                Value = u.Id.ToString(),
+                Text = u.Name
+            }).ToList();
+
             return View();
         }
 
@@ -92,7 +133,7 @@ namespace WebApplication1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FormularioId,TipoIdentificacion,Identificacion,Nombre,PrimerApellido,SegundoApellido,genero,Nacionalidad,FechaNacimiento,EstadoCivil,InstituciónEducativa,TelefonoPrincipal,TelefonoSecundario,fax,CorreoElectronico,CorreoElectronicoSecundario,Indigena,NombreCarrera,SeleccioneCarrera,NivelAcademico,TipoNecesidad,DescripcionNecesidad,CondicionMedica,RequiereAdaptaciones,AsistenciaAdicional,ApoyoAdicional,MedicoEspecialista,TratamientoTerapia,FechaDiagnostico")] Formulario formulario)
+        public async Task<IActionResult> Create([Bind("FormularioId,TipoIdentificacion,Identificacion,Nombre,PrimerApellido,SegundoApellido,genero,Nacionalidad,FechaNacimiento,EstadoCivil,TelefonoPrincipal,TelefonoSecundario,fax,CorreoElectronico,CorreoElectronicoSecundario,Indigena,NombreCarrera,NivelAcademico,TipoNecesidad,DescripcionNecesidad,CondicionMedica,RequiereAdaptaciones,AsistenciaAdicional,ApoyoAdicional,MedicoEspecialista,TratamientoTerapia,FechaDiagnostico, UniversidadId, MateriaId")] Formulario formulario)
         {
             if (ModelState.IsValid)
             {
@@ -119,6 +160,17 @@ namespace WebApplication1.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
+            //CARGAR LOS DATOS DE UNIVERSIDAD Y MATERIAS
+            //obtener las universidades del servicio
+            var universidades = await _universidadServices.ObtenerUniversidadesAsync();
+            ViewBag.Universidad = universidades; //mandamos el viewbag de universidades disponibles.
+
+            //obtener las materias del servicio
+            var materias = await _materiaService.ObtenerMateriasAsync();
+
+            // Puedes pasarlas a la vista con ViewBag, ViewModel, etc.
+            ViewBag.Materia = materias;
+            
             return View(formulario);
         }
 
@@ -144,7 +196,7 @@ namespace WebApplication1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FormularioId,TipoIdentificacion,Identificacion,Nombre,PrimerApellido,SegundoApellido,genero,Nacionalidad,FechaNacimiento,EstadoCivil,InstituciónEducativa,TelefonoPrincipal,TelefonoSecundario,fax,CorreoElectronico,CorreoElectronicoSecundario,Indigena,NombreCarrera,SeleccioneCarrera,NivelAcademico,TipoNecesidad,DescripcionNecesidad,CondicionMedica,RequiereAdaptaciones,AsistenciaAdicional,ApoyoAdicional,MedicoEspecialista,TratamientoTerapia,FechaDiagnostico")] Formulario formulario)
+        public async Task<IActionResult> Edit(int id, [Bind("FormularioId,TipoIdentificacion,Identificacion,Nombre,PrimerApellido,SegundoApellido,genero,Nacionalidad,FechaNacimiento,EstadoCivil,TelefonoPrincipal,TelefonoSecundario,fax,CorreoElectronico,CorreoElectronicoSecundario,Indigena,NombreCarrera,SeleccioneCarrera,NivelAcademico,TipoNecesidad,DescripcionNecesidad,CondicionMedica,RequiereAdaptaciones,AsistenciaAdicional,ApoyoAdicional,MedicoEspecialista,TratamientoTerapia,FechaDiagnostico")] Formulario formulario)
         {
             if (id != formulario.FormularioId)
             {

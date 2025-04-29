@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.DTO;
 using WebApplication1.Models;
@@ -76,48 +71,51 @@ namespace WebApplication1.Controllers
         // POST: api/ArchivoAdjunto
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<ArchivoAdjunto>> PostArchivoAdjunto(int formularioId, IFormFile archivo)
+        public async Task<ActionResult<ArchivoAdjunto>> PostArchivoAdjunto(int formularioId, IFormFile archivo) // Método para subir un archivo adjunto y asociarlo a un formulario.
         {
-            if (archivo == null || archivo.Length == 0)
-                return BadRequest("Debe seleccionar un archivo válido.");
+            if (archivo == null || archivo.Length == 0) // Si el archivo es nulo o está vacío (sin contenido), retorna error.
+                return BadRequest("Debe seleccionar un archivo válido."); // Devuelve una respuesta HTTP 400 con un mensaje.
 
-            var extensionesPermitidas = new[] { ".pdf", ".docx", ".jpg", ".jpeg", ".png" };
-            var extension = Path.GetExtension(archivo.FileName).ToLower();
+            var extensionesPermitidas = new[] { ".pdf", ".docx", ".jpg", ".jpeg", ".png" }; // Arreglo con las extensiones de archivo permitidas.
 
-            if (!extensionesPermitidas.Contains(extension))
-                return BadRequest("Tipo de archivo no permitido.");
+            var extension = Path.GetExtension(archivo.FileName).ToLower(); // Obtiene la extensión del archivo cargado y la convierte a minúscula.
 
-            if (archivo.Length > 10 * 1024 * 1024)
-                return BadRequest("Archivo demasiado grande. Máximo 10 MB.");
+            if (!extensionesPermitidas.Contains(extension)) // Verifica si la extensión del archivo no está en la lista permitida.
+                return BadRequest("Tipo de archivo no permitido."); // Retorna error si la extensión no es válida.
 
-            var carpetaDestino = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
-            if (!Directory.Exists(carpetaDestino))
-                Directory.CreateDirectory(carpetaDestino);
+            if (archivo.Length > 10 * 1024 * 1024) // Verifica si el archivo pesa más de 10 MB.
+                return BadRequest("Archivo demasiado grande. Máximo 10 MB."); // Retorna error si excede el límite.
 
-            var nombreArchivo = Guid.NewGuid() + extension;
-            var rutaCompleta = Path.Combine(carpetaDestino, nombreArchivo);
+            var carpetaDestino = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads"); // Define la ruta de la carpeta donde se guardará el archivo.
 
-            using (var stream = new FileStream(rutaCompleta, FileMode.Create))
+            if (!Directory.Exists(carpetaDestino)) // Verifica si la carpeta no existe.
+                Directory.CreateDirectory(carpetaDestino); // Si no existe, la crea.
+
+            var nombreArchivo = Guid.NewGuid() + extension; // Genera un nombre único para el archivo usando un GUID y le agrega la extensión original.
+
+            var rutaCompleta = Path.Combine(carpetaDestino, nombreArchivo); // Construye la ruta completa donde se almacenará el archivo.
+
+            using (var stream = new FileStream(rutaCompleta, FileMode.Create)) // Crea un flujo de archivo para escribir el contenido del archivo subido.
             {
-                await archivo.CopyToAsync(stream);
+                await archivo.CopyToAsync(stream); // Copia el contenido del archivo subido al archivo físico en el servidor.
             }
 
-            var adjunto = new ArchivoAdjunto
+            var adjunto = new ArchivoAdjunto // Crea una nueva instancia del modelo ArchivoAdjunto para guardar la información del archivo en la base de datos.
             {
-                FormularioId = formularioId,
-                NombreArchivo = archivo.FileName,
-                RutaArchivo = nombreArchivo,
-                TipoArchivo = archivo.ContentType,
-                FechaSubida = DateTime.Now
+                FormularioId = formularioId, // Asocia el archivo al formulario con el ID proporcionado.
+                NombreArchivo = archivo.FileName, // Guarda el nombre original del archivo.
+                RutaArchivo = nombreArchivo, // Guarda el nombre con el que se almacenó el archivo (con GUID).
+                TipoArchivo = archivo.ContentType, // Guarda el tipo MIME del archivo (por ejemplo, image/png, application/pdf).
+                FechaSubida = DateTime.Now // Guarda la fecha y hora actual como momento de subida.
             };
 
-            _context.Archivos.Add(adjunto);
-            await _context.SaveChangesAsync();
+            _context.Archivos.Add(adjunto); // Agrega el nuevo objeto adjunto al contexto para que sea guardado en la base de datos.
+            await _context.SaveChangesAsync(); // Guarda los cambios en la base de datos de forma asíncrona.
 
-            return Ok(new { mensaje = "Archivo subido correctamente", archivoId = adjunto.Id });
-        
+            return Ok(new { mensaje = "Archivo subido correctamente", archivoId = adjunto.Id }); // Retorna una respuesta HTTP 200 con un mensaje y el ID del archivo subido.
         }
-        
+
+
 
         // DELETE: api/ArchivoAdjunto/5
         [HttpDelete("{id}")]

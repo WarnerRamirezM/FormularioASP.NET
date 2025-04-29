@@ -10,7 +10,7 @@
 <h4>Formulario de Admisión</h4>
 <hr />
 
-<form asp-action="Create" method="post">
+<form asp-action="Create" method="post" enctype="multipart/form-data"> <!--enctype para arcivos.jp.pdf-->
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
     <div class="row formulario-container">
@@ -216,19 +216,14 @@
             <h4>Buscar carrera universitaria</h4>
 
             <div class="form-group formulario-educativo">
-                @{
-                    var universidades = ViewBag.Universidad as List<UniversidadModel>;
-                } 
-                <!-- creamos el select de universidades disponibles --> 
-                <label for="UniversidadId">Seleccione el centro educativo:</label>
-                <select name="UniversidadId" id="UniversidadId" class="form-control">
-                    <option value="" disabled selected>-- Seleccione --</option>
-                    @foreach (var universidad in universidades)
-                    {
-                        <option value="@universidad.Id" >@universidad.Name</option>
-                    }
+                <label asp-for="UniversidadId">Seleccione el centro educativo:</label>
+                <select asp-for="UniversidadId" class="form-control" asp-items="ViewBag.Universidad">
+                    <option value="">-- Seleccione --</option>
                 </select>
+                <span asp-validation-for="UniversidadId" class="text-danger"></span>
             </div>
+
+
 
             <div class="form-group">
                 <label asp-for="NombreCarrera">Nombre Carrera</label>
@@ -236,19 +231,12 @@
                 <span asp-validation-for="NombreCarrera" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                @{
-                    var materias = ViewBag.Materias as List<MateriaModel>;
-                }
-
-                <label for="MateriaId">Seleccione una materia:</label>
-                <select name="MateriaId" id="MateriaId" class="form-control">
-                    <option value="" disabled selected>-- Seleccione --</option>
-                    @foreach (var materia in materias)
-                    {
-                        <option value="@materia.Id">@materia.Name</option>
-                    }
+            <div class="form-group formulario-educativo">
+                <label asp-for="MateriaId">Seleccione la materia:</label>
+                <select asp-for="MateriaId" class="form-control" asp-items="ViewBag.Materia">
+                    <option value="">-- Seleccione --</option>
                 </select>
+                <span asp-validation-for="MateriaId" class="text-danger"></span>
             </div>
 
             <div class="form-group">
@@ -257,7 +245,11 @@
                 <span asp-validation-for="NivelAcademico" class="text-danger"></span>
             </div>
         </div>
-
+        <!--input para el archivo-->
+        <div class="form-group col-12">
+            <label for="archivo">Subir archivo (PDF, DOCX, JPG, PNG):</label>
+            <input type="file" name="archivo" class="form-control" required />
+        </div>
         <!-- Botón Final -->
         <div class="form-group col-12">
             <input type="submit" value="Crear" class="btn btn-primary" />

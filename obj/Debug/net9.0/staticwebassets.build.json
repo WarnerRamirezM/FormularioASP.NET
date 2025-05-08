@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "x9HooFNG5FdC0khlxwT7OIl+1mNgWVzbifpYGLExh2M=",
+  "Hash": "trzuD97jngi3NXkXH6rOPYuwYTqbTp7J0lBdI85IOOo=",
   "Source": "WebApplication1",
   "BasePath": "_content/WebApplication1",
   "Mode": "Default",
@@ -2766,6 +2766,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\wwwroot\\uploads\\archivo_2af7fe32-58fe-418b-bfea-808dcdbf4711.jpg",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "uploads/archivo_2af7fe32-58fe-418b-bfea-808dcdbf4711#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "s2w07o7gzz",
+      "Integrity": "nCbQPjcIrO6AwqtNA5pom0eJD8w2EULAYSYYyGVxfIA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\archivo_2af7fe32-58fe-418b-bfea-808dcdbf4711.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\wwwroot\\uploads\\archivo_fc9f3dbe-6380-4328-9ad8-8df46a24655b.jpg",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "uploads/archivo_fc9f3dbe-6380-4328-9ad8-8df46a24655b#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "j28uy9vwc8",
+      "Integrity": "pWXcS86/HviEGepXXwjM/7cJ01oUPoN8HiXD/VDTSo4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\archivo_fc9f3dbe-6380-4328-9ad8-8df46a24655b.jpg"
     }
   ],
   "Endpoints": [
@@ -21626,6 +21668,170 @@
       ]
     },
     {
+      "Route": "uploads/archivo_2af7fe32-58fe-418b-bfea-808dcdbf4711.jpg",
+      "AssetFile": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\wwwroot\\uploads\\archivo_2af7fe32-58fe-418b-bfea-808dcdbf4711.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "118005"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nCbQPjcIrO6AwqtNA5pom0eJD8w2EULAYSYYyGVxfIA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 08 May 2025 17:47:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-nCbQPjcIrO6AwqtNA5pom0eJD8w2EULAYSYYyGVxfIA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/archivo_2af7fe32-58fe-418b-bfea-808dcdbf4711.s2w07o7gzz.jpg",
+      "AssetFile": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\wwwroot\\uploads\\archivo_2af7fe32-58fe-418b-bfea-808dcdbf4711.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "118005"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nCbQPjcIrO6AwqtNA5pom0eJD8w2EULAYSYYyGVxfIA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 08 May 2025 17:47:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s2w07o7gzz"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/archivo_2af7fe32-58fe-418b-bfea-808dcdbf4711.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nCbQPjcIrO6AwqtNA5pom0eJD8w2EULAYSYYyGVxfIA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/archivo_fc9f3dbe-6380-4328-9ad8-8df46a24655b.j28uy9vwc8.jpg",
+      "AssetFile": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\wwwroot\\uploads\\archivo_fc9f3dbe-6380-4328-9ad8-8df46a24655b.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "169915"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pWXcS86/HviEGepXXwjM/7cJ01oUPoN8HiXD/VDTSo4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 08 May 2025 17:56:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j28uy9vwc8"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/archivo_fc9f3dbe-6380-4328-9ad8-8df46a24655b.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pWXcS86/HviEGepXXwjM/7cJ01oUPoN8HiXD/VDTSo4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/archivo_fc9f3dbe-6380-4328-9ad8-8df46a24655b.jpg",
+      "AssetFile": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\wwwroot\\uploads\\archivo_fc9f3dbe-6380-4328-9ad8-8df46a24655b.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "169915"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pWXcS86/HviEGepXXwjM/7cJ01oUPoN8HiXD/VDTSo4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 08 May 2025 17:56:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pWXcS86/HviEGepXXwjM/7cJ01oUPoN8HiXD/VDTSo4="
+        }
+      ]
+    },
+    {
       "Route": "WebApplication1.bundle.scp.css",
       "AssetFile": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\obj\\Debug\\net9.0\\compressed\\4ej8qvsbid-yj6fvmmoe8.gz",
       "Selectors": [
@@ -21650,7 +21856,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 21:47:50 GMT"
+          "Value": "Thu, 08 May 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21703,7 +21909,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 21:47:50 GMT"
+          "Value": "Thu, 08 May 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21740,7 +21946,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 21:47:50 GMT"
+          "Value": "Thu, 08 May 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21787,7 +21993,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 21:47:50 GMT"
+          "Value": "Thu, 08 May 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21840,7 +22046,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 21:47:50 GMT"
+          "Value": "Thu, 08 May 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21877,7 +22083,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 21:47:50 GMT"
+          "Value": "Thu, 08 May 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21924,7 +22130,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 21:47:50 GMT"
+          "Value": "Thu, 08 May 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21985,7 +22191,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 21:47:50 GMT"
+          "Value": "Thu, 08 May 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22030,7 +22236,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 21:47:50 GMT"
+          "Value": "Thu, 08 May 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22085,7 +22291,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 21:47:50 GMT"
+          "Value": "Thu, 08 May 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22146,7 +22352,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 21:47:50 GMT"
+          "Value": "Thu, 08 May 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22191,7 +22397,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 21:47:50 GMT"
+          "Value": "Thu, 08 May 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",

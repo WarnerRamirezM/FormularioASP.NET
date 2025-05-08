@@ -261,6 +261,14 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
     },
     {
+      "Id": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\wwwroot\\uploads\\archivo_2af7fe32-58fe-418b-bfea-808dcdbf4711.jpg",
+      "PackagePath": "staticwebassets\\uploads\\archivo_2af7fe32-58fe-418b-bfea-808dcdbf4711.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\Desktop\\CSHART\\Formulario c# y javascript\\WebApplication1\\wwwroot\\uploads\\archivo_fc9f3dbe-6380-4328-9ad8-8df46a24655b.jpg",
+      "PackagePath": "staticwebassets\\uploads\\archivo_fc9f3dbe-6380-4328-9ad8-8df46a24655b.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },

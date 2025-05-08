@@ -107,23 +107,7 @@ namespace WebApplication1.Controllers
         // GET: Formulario/Create
         public async Task<IActionResult> CreateAsync()
         {
-            var universidades = await _universidadServices.ObtenerUniversidadesAsync();
-
-            // Convertir a SelectListItem
-            ViewBag.Universidad = universidades.Select(u => new SelectListItem
-            {
-                Value = u.Id.ToString(), // Id debe ser int o string
-                Text = u.Name
-            }).ToList();
-
-            //obtener las materias del servicio
-            var materias = await _materiaService.ObtenerMateriasAsync();
-
-            ViewBag.Materia = materias.Select(u => new SelectListItem
-            {
-                Value = u.Id.ToString(),
-                Text = u.Name
-            }).ToList();
+            await CargarListasDesplegables();
 
             return View();
         }
@@ -133,45 +117,62 @@ namespace WebApplication1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FormularioId,TipoIdentificacion,Identificacion,Nombre,PrimerApellido,SegundoApellido,genero,Nacionalidad,FechaNacimiento,EstadoCivil,TelefonoPrincipal,TelefonoSecundario,fax,CorreoElectronico,CorreoElectronicoSecundario,Indigena,NombreCarrera,NivelAcademico,TipoNecesidad,DescripcionNecesidad,CondicionMedica,RequiereAdaptaciones,AsistenciaAdicional,ApoyoAdicional,MedicoEspecialista,TratamientoTerapia,FechaDiagnostico, UniversidadId, MateriaId")] Formulario formulario)
+        public async Task<IActionResult> Create(Formulario formulario, IFormFile ArchivoSubido)
         {
-            if (ModelState.IsValid)
             {
+                // Validaciones manuales del formulario (campos obligatorios)
+                if (string.IsNullOrWhiteSpace(formulario.Nombre) ||
+                    string.IsNullOrWhiteSpace(formulario.PrimerApellido) ||
+                    string.IsNullOrWhiteSpace(formulario.Identificacion) ||
+                    string.IsNullOrWhiteSpace(formulario.CorreoElectronico))
+                {
+                    ViewBag.Error = "Debe completar todos los campos obligatorios.";
+                    await CargarListasDesplegables();
+                    return View(formulario);
+                }
+
+                // Validación y procesamiento del archivo
+                if (ArchivoSubido == null || ArchivoSubido.Length == 0)
+                {
+                    ViewBag.ErrorArchivo = "Debe subir un archivo válido.";
+                    await CargarListasDesplegables();
+                    return View(formulario);
+                }
+
+                var extension = Path.GetExtension(ArchivoSubido.FileName).ToLower();
+                var extensionesPermitidas = new[] { ".pdf", ".docx", ".jpg", ".jpeg", ".png" };
+
+                if (!extensionesPermitidas.Contains(extension))
+                {
+                    ViewBag.ErrorArchivo = "Tipo de archivo no permitido. Solo se permiten PDF, DOCX, JPG, JPEG o PNG.";
+                    await CargarListasDesplegables();
+                    return View(formulario);
+                }
+
+                // Crear carpeta si no existe
+                var carpetaDestino = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+                if (!Directory.Exists(carpetaDestino))
+                    Directory.CreateDirectory(carpetaDestino);
+
+                // Guardar archivo con nombre único
+                string nombreUnico = $"archivo_{Guid.NewGuid()}{extension}";
+                string rutaCompleta = Path.Combine(carpetaDestino, nombreUnico);
+
+                using (var stream = new FileStream(rutaCompleta, FileMode.Create))
+                {
+                    await ArchivoSubido.CopyToAsync(stream);
+                }
+                var filep = $"/uploads/{nombreUnico}";
+                // Guardar ruta relativa del archivo en el modelo
+                formulario.FilePath = filep;
+
+                // Guardar en la base de datos
                 _context.Add(formulario);
                 await _context.SaveChangesAsync();
 
-                // ✅ Enviar correo
-                var mensaje = $@"
-            <h2>Formulario creado con éxito</h2>
-            <p>Estimado/a {formulario.Nombre} {formulario.PrimerApellido},</p>
-            <p>Su formulario ha sido registrado correctamente en el sistema.</p>
-            <p><strong>Número de formulario:</strong> {formulario.FormularioId}</p>
-            <p><strong>Identificación:</strong> {formulario.Identificacion}</p>
-            <p><strong>Correo registrado:</strong> {formulario.CorreoElectronico}</p>
-            <br/>
-            <p>Gracias por utilizar el sistema de la UNED.</p>
-        ";
-
-                await _emailService.EnviarCorreoAsync(
-                    destinatario: formulario.CorreoElectronico,
-                    asunto: "Formulario creado con éxito - UNED",
-                    mensaje: mensaje
-                );
-
-                return RedirectToAction(nameof(Index));
+                // Redirigir al índice (o página de éxito)
+                return Redirect(Url.Action("Index", "Formulario"));
             }
-            //CARGAR LOS DATOS DE UNIVERSIDAD Y MATERIAS
-            //obtener las universidades del servicio
-            var universidades = await _universidadServices.ObtenerUniversidadesAsync();
-            ViewBag.Universidad = universidades; //mandamos el viewbag de universidades disponibles.
-
-            //obtener las materias del servicio
-            var materias = await _materiaService.ObtenerMateriasAsync();
-
-            // Puedes pasarlas a la vista con ViewBag, ViewModel, etc.
-            ViewBag.Materia = materias;
-            
-            return View(formulario);
         }
 
 
@@ -298,6 +299,22 @@ namespace WebApplication1.Controllers
                 }
                 return File(ms.ToArray(), "application/pdf", "Formulario_" + formulario.FormularioId + ".pdf");
             }
+        }
+        private async Task CargarListasDesplegables()
+        {
+            var universidades = await _universidadServices.ObtenerUniversidadesAsync();
+            ViewBag.Universidad = universidades.Select(u => new SelectListItem
+            {
+                Value = u.Id.ToString(),
+                Text = u.Name
+            }).ToList();
+
+            var materias = await _materiaService.ObtenerMateriasAsync();
+            ViewBag.Materia = materias.Select(m => new SelectListItem
+            {
+                Value = m.Id.ToString(),
+                Text = m.Name
+            }).ToList();
         }
     }
 }

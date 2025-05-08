@@ -12,7 +12,19 @@
 
 <form asp-action="Create" method="post" enctype="multipart/form-data"> <!--enctype para arcivos.jp.pdf-->
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.Error
+        </div>
+    }
 
+    @if (ViewBag.ErrorArchivo != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.ErrorArchivo
+        </div>
+    }
     <div class="row formulario-container">
         <!-- Barra de Navegación -->
         <ul class="nav flex-column col-12 col-md-4 formulario-nav" id="pills-tab" role="tablist">
@@ -68,9 +80,9 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="genero"></label>
-                <input asp-for="genero" class="form-control" />
-                <span asp-validation-for="genero" class="text-danger"></span>
+                <label asp-for="Genero"></label>
+                <input asp-for="Genero" class="form-control" />
+                <span asp-validation-for="Genero" class="text-danger"></span>
             </div>
 
             <div class="form-group">
@@ -107,9 +119,9 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="fax"></label>
-                <input asp-for="fax" class="form-control" />
-                <span asp-validation-for="fax" class="text-danger"></span>
+                <label asp-for="Fax"></label>
+                <input asp-for="Fax" class="form-control" />
+                <span asp-validation-for="Fax" class="text-danger"></span>
             </div>
 
             <div class="form-group">
@@ -247,8 +259,8 @@
         </div>
         <!--input para el archivo-->
         <div class="form-group col-12">
-            <label for="archivo">Subir archivo (PDF, DOCX, JPG, PNG):</label>
-            <input type="file" name="archivo" class="form-control" required />
+            <label for="ArchivoSubido">Subir archivo (PDF, DOCX, JPG, PNG):</label>
+            <input asp-for="ArchivoSubido" type="file"  class="form-control" required />
         </div>
         <!-- Botón Final -->
         <div class="form-group col-12">

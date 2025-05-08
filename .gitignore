@@ -1,0 +1,22 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+
+# User-specific files
+*.userosscache
+*.sln.docstates
+
+# Uploads
+wwwroot/uploads/
+
+# Others
+*.cache
+*.log
